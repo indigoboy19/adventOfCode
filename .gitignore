@@ -1,5 +1,6 @@
 .metals
 .vscode
+.bloop
 **/.idea
 **/target/**
 .env
