@@ -1,4 +1,4 @@
-package 2022.food
+package `2022`.food
 
 import scala.collection.immutable.List
 
@@ -10,5 +10,6 @@ case object ElfFoodWithTotalCalories:
       case List() => List.empty[ElfFoodWithTotalCalories]
       case head :: tail =>
         val sameElfFood = tail.filter(_.doesItBelongToElf(head))
+        val differentElfFood = tail.filterNot(_.doesItBelongToElf(head))
         val totalCalories = sameElfFood.foldLeft(head)(_.sumCalories(_))
-        ElfFoodWithTotalCalories(head.elfId, sameElfFood, totalCalories) :: ElfFoodWithTotalCalories.apply(tail.filterNot(_.doesItBelongToElf(head)))
+        ElfFoodWithTotalCalories(head.elfId, sameElfFood, totalCalories) :: ElfFoodWithTotalCalories.apply(differentElfFood)

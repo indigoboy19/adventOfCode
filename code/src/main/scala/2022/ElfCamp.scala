@@ -1,3 +1,3 @@
-package 2022
+package `2022`
 
 case class ElfCamp()
