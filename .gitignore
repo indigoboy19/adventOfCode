@@ -4,3 +4,5 @@
 **/.idea
 **/target/**
 .env
+.ammonite/
+metals.sbt
