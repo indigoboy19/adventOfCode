@@ -1,6 +1,6 @@
-package `2022`
+package `2022`.domain.model
 
-import  `2022`.food.Food
+import  `2022`.domain.value.Food
 
 import scala.collection.immutable.List
 

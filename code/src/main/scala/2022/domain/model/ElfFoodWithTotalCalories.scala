@@ -1,4 +1,4 @@
-package `2022`.food
+package `2022`.domain.model
 
 import scala.collection.immutable.List
 

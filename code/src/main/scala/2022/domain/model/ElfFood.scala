@@ -1,6 +1,8 @@
-package `2022`.food
+package `2022`.domain.model
 
 import scala.collection.immutable.List
+
+import `2022`.domain.value.Food
 
 case class ElfFood(elfId:String, food: Food):
   def doesItBelongToElf(elfFood:ElfFood): Boolean = elfFood.elfId == elfId
