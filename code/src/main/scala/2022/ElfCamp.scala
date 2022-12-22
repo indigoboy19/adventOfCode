@@ -12,3 +12,6 @@ case class ElfCamp():
                 val differentElfFood = tail.filterNot(_.doesItBelongToElf(head))
                 val totalCalories = sameElfFood.foldLeft(head)(_.sumCalories(_))
                 ElfFoodWithTotalCalories(head.elfId, sameElfFood, totalCalories) :: calculateElvesTotalCalories(differentElfFood)
+
+    def elfWithMostCalories(totalElfFoodCalories: List[ElfFoodWithTotalCalories]) =
+        totalElfFoodCalories.maxBy(_.totalCalories.food.calories)
