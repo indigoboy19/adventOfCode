@@ -18,7 +18,7 @@ case object ElfFood:
         optionInt match 
           case None =>
             head match
-              case "" => helperMethod(id + 1, lines)
+              case "" => helperMethod(id + 1, lines.tail)
               case _ => None
           case Some(calories) =>
             val option = helperMethod(id, tail)
