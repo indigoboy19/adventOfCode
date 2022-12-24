@@ -14,6 +14,10 @@ class ResolutionTest extends AnyFlatSpec {
         assert(elfFoodRepository("src/test/scala/2022/1/resources/oneElfFood").value == 6000.0)
     }
 
+    "Elf in camp, who found a partner" should "still not be the one with most food(7000 calories)" in {
+        assert(elfFoodRepository("src/test/scala/2022/1/resources/twoElfFood").value == 7000.0)
+    }
+
     def elfFoodRepository(path: String) =
         ElfFoodRepositoryFromFile(path)
             .map(elfFoodRepository =>
