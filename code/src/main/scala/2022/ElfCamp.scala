@@ -1,17 +1,17 @@
 package `2022`
 
 import  `2022`.domain.model.ElfFood
-import  `2022`.domain.model.ElfTotalCalories
+import  `2022`.domain.model.ElfMaxCalories
 
 case class ElfCamp():
-    def calculateElvesTotalCalories(elvesFood: List[ElfFood]): List[ElfTotalCalories] =
+    def calculateElvesMaxCalories(elvesFood: List[ElfFood]): List[ElfMaxCalories] =
         elvesFood match
-            case List() => List.empty[ElfTotalCalories]
+            case List() => List.empty[ElfMaxCalories]
             case head :: tail =>
                 val sameElfFood = tail.filter(_.doesItBelongToElf(head))
                 val differentElfFood = tail.filterNot(_.doesItBelongToElf(head))
                 val totalCalories = sameElfFood.foldLeft(head)(_.sumCalories(_))
-                ElfTotalCalories(head.elfId, sameElfFood, totalCalories) :: calculateElvesTotalCalories(differentElfFood)
+                ElfMaxCalories(head.elfId, totalCalories.food.calories) :: calculateElvesMaxCalories(differentElfFood)
 
-    def elfWithMostCalories(totalElfFoodCalories: List[ElfTotalCalories]): ElfTotalCalories =
-        totalElfFoodCalories.maxBy(_.totalCalories.food.calories)
+    def elfWithMostCalories(totalElfFoodCalories: List[ElfMaxCalories]): ElfMaxCalories =
+        totalElfFoodCalories.maxBy(_.calories)
