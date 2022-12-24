@@ -1,4 +1,4 @@
-package `2022`.domain.repository
+package `2022`.domain.repository.elfFood
 
 import  `2022`.domain.model.ElfFood
 import  `2022`.domain.value.Food
